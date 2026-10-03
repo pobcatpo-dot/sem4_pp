@@ -1,7 +1,7 @@
 # src/mac_validator/validator.py
 import re
 
-MAC_PATTERN = re.compile(r"^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$")
+MAC_PATTERN = re.compile(r"^[0-9A-Fa-f]{2}(?P<sep>[:-])(?:[0-9A-Fa-f]{2}(?P=sep)){4}[0-9A-Fa-f]{2}$")
 
 def is_valid_mac(mac: str) -> bool:
     """
